@@ -19,7 +19,7 @@ const Billing = () => {
 
       console.log("Order response:", response.data);
       alert("Order placed successfully!");
-      placeOrder(); 
+      placeOrder();
     } catch (err) {
       console.error("Failed to place order:", err);
       alert("Something went wrong placing the order.");

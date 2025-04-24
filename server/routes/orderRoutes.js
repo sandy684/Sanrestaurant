@@ -1,17 +1,17 @@
 const express = require("express");
-const app= express();
+const router = express.Router();
 const Order = require("../models/Order");
 
-app.post("/", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { items } = req.body;
     const newOrder = new Order({ items });
     await newOrder.save();
-    res.status().json({ message: "Order placed successfully" });
+    res.status(201).json({ message: "Order placed successfully" });
   } catch (error) {
     console.error("Order placement error:", error);
-    res.status().json({ error: "Failed to place order" });
+    res.status(500).json({ error: "Failed to place order" });
   }
 });
 
-
+module.exports = router;

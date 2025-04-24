@@ -7,7 +7,10 @@ const orderSchema = new mongoose.Schema({
       price: Number,
     },
   ],
-
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("Order", orderSchema);
